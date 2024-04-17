@@ -8,41 +8,86 @@
 import UIKit
 
 class ViewController: UIViewController {
+    //player labels
     
-    var playerOneHealth = 20
+    //player health
 
+    var playerOne = 20
+    var playerTwo = 20
+    
+    //player health
+    @IBOutlet weak var playerOneHealthLabel: UILabel!
+    @IBOutlet weak var playerTwoHealthLabel: UILabel!
+    
+    //player loss label
+    @IBOutlet weak var playerLossLabel: UILabel!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
         // Do any additional setup after loading the view.
-        playerLoseLabel.isHidden = true;
-        playerOneHealthLabel.text = String(playerOneHealth)
-    }
-    @IBOutlet weak var playerOneHealthLabel: UILabel!
-    @IBOutlet weak var playerLoseLabel: UILabel!
-    @IBAction func HandleAddOneHealth(_ sender: Any) {
-        playerOneHealth += 1
-        playerOneHealthLabel.text = String(playerOneHealth)
-    }
-    @IBAction func HandleMinusOneHealth(_ sender: Any) {
-        playerOneHealth -= 1
-        playerOneHealthLabel.text = String(playerOneHealth)
+        playerOneHealthLabel.text = String(playerOne)
+        playerTwoHealthLabel.text = String(playerTwo)
+        playerLossLabel.isHidden = true
+        
     }
     
-    @IBAction func HandleAddFiveHealth(_ sender: Any) {
-        playerOneHealth += 5
-        playerOneHealthLabel.text = String(playerOneHealth)
+    //Player One Functions
+    @IBAction func HandleFirstAddOne(_ sender: Any) {
+        playerOne += 1
+        playerOneHealthLabel.text = String(playerOne)
     }
     
-    @IBAction func HandleMinusFiveHealth(_ sender: Any) {
-        playerOneHealth -= 5
-        playerOneHealthLabel.text = String(playerOneHealth)
-        if playerOneHealth <= 0 {
-            playerLoseLabel.text = "Player One Loses!"
-            playerLoseLabel.isHidden = false
+    @IBAction func HandleFirstMinusOne(_ sender: Any) {
+        playerOne -= 1
+        playerOneHealthLabel.text = String(playerOne)
+        if playerOne <= 0 {
+            playerLossLabel.text = "Player One Loses!"
+            playerLossLabel.isHidden = false
         }
     }
     
+    @IBAction func HandleFirstAddFive(_ sender: Any) {
+        playerOne += 5
+        playerOneHealthLabel.text = String(playerOne)
     }
+    @IBAction func HandleFirstMinusFive(_ sender: Any) {
+        playerOne -= 5
+        playerOneHealthLabel.text = String(playerOne)
+        if playerOne <= 0 {
+            playerLossLabel.text = "Player One Loses!"
+            playerLossLabel.isHidden = false
+        }
+    }
+    
+    
+    //Player Two Functions
+    @IBAction func HandleSecondAddOne(_ sender: Any) {
+        playerTwo += 1
+        playerTwoHealthLabel.text = String(playerTwo)
+    }
+    
+    @IBAction func HandleSecondMinusOne(_ sender: Any) {
+        playerTwo -= 1
+        playerTwoHealthLabel.text = String(playerTwo)
+        if playerTwo <= 0 {
+            playerLossLabel.text = "Player Two Loses!"
+            playerLossLabel.isHidden = false
+        }
+    }
+    
+    @IBAction func HandleSecondAddFive(_ sender: Any) {
+        playerTwo += 5
+        playerTwoHealthLabel.text = String(playerTwo)
+    }
+    
+    @IBAction func HandleSecondMinusFive(_ sender: Any) {
+        playerTwo -= 5
+        playerTwoHealthLabel.text = String(playerTwo)
+        if playerTwo <= 0 {
+            playerLossLabel.text = "Player Two Loses!"
+            playerLossLabel.isHidden = false
+        }
+    }
+}
                                            
-
