@@ -16,26 +16,146 @@
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Test" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0Xs-Ph-ktm">
-                                <rect key="frame" x="175" y="280" width="33" height="21"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Life Counter v1" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9lU-vR-Q6v">
+                                <rect key="frame" x="100" y="84" width="193" height="36"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="36" id="WFL-u3-osw"/>
+                                    <constraint firstAttribute="width" constant="193" id="kV2-te-Hih"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="30"/>
                                 <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Player One" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dA2-k1-0Zj">
+                                <rect key="frame" x="25" y="175" width="113" height="29"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="113" id="0Nx-jJ-ekb"/>
+                                    <constraint firstAttribute="height" constant="29" id="GBZ-eN-AGE"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="24"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="20" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZSI-ds-1fI">
+                                <rect key="frame" x="46" y="214" width="70" height="31"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="31" id="zMJ-E9-MVH"/>
+                                    <constraint firstAttribute="width" constant="70" id="zOo-Hp-t2o"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Rem-nG-XYd">
+                                <rect key="frame" x="25" y="255" width="37" height="38"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="37" id="1FS-eZ-QYp"/>
+                                    <constraint firstAttribute="width" constant="37" id="fxi-Vk-A9g"/>
+                                    <constraint firstAttribute="height" constant="38" id="sFQ-2h-xMi"/>
+                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="38" id="u63-k9-uxh"/>
+                                </constraints>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" title="+">
+                                    <fontDescription key="titleFontDescription" type="system" pointSize="20"/>
+                                </buttonConfiguration>
+                                <connections>
+                                    <action selector="HandleAddOneHealth:" destination="BYZ-38-t0r" eventType="touchUpInside" id="9eD-7j-mbi"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Txk-kM-UJ2">
+                                <rect key="frame" x="100" y="255" width="38" height="38"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="38" id="JNH-yA-ZD8"/>
+                                    <constraint firstAttribute="height" constant="38" id="bOH-AV-5sC"/>
+                                </constraints>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" title="-">
+                                    <fontDescription key="titleFontDescription" type="system" pointSize="20"/>
+                                </buttonConfiguration>
+                                <connections>
+                                    <action selector="HandleMinusOneHealth:" destination="BYZ-38-t0r" eventType="touchUpInside" id="z6C-20-2B1"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Qyr-Iw-xga">
+                                <rect key="frame" x="25" y="301" width="48" height="38"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="38" id="I38-Kh-GJH"/>
+                                    <constraint firstAttribute="width" constant="48" id="l7b-UI-Kl1"/>
+                                </constraints>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" title="+5">
+                                    <fontDescription key="titleFontDescription" type="system" pointSize="20"/>
+                                </buttonConfiguration>
+                                <connections>
+                                    <action selector="HandleAddFiveHealth:" destination="BYZ-38-t0r" eventType="touchUpInside" id="0GH-8D-mhc"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bfd-QJ-SUk">
+                                <rect key="frame" x="92" y="301" width="45" height="38"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="45" id="5fP-ug-UrY"/>
+                                    <constraint firstAttribute="height" constant="38" id="niL-FO-0P5"/>
+                                </constraints>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" title="-5">
+                                    <fontDescription key="titleFontDescription" type="system" pointSize="20"/>
+                                </buttonConfiguration>
+                                <connections>
+                                    <action selector="HandleMinusFiveHealth:" destination="BYZ-38-t0r" eventType="touchUpInside" id="UAc-g0-Dcb"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Player One Loses!" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DJ2-X7-xRd">
+                                <rect key="frame" x="69" y="760" width="255" height="38"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="38" id="GPF-Kl-egA"/>
+                                    <constraint firstAttribute="width" constant="255" id="qSn-dg-vFl"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="32"/>
+                                <color key="textColor" systemColor="systemRedColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="9lU-vR-Q6v" secondAttribute="trailing" constant="100" id="2Dt-E8-p75"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="DJ2-X7-xRd" secondAttribute="bottom" constant="15" id="3h8-o6-F0o"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="DJ2-X7-xRd" secondAttribute="bottom" constant="90" id="6G6-Il-Svd"/>
+                            <constraint firstItem="9lU-vR-Q6v" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="100" id="7B9-Y4-aWd"/>
+                            <constraint firstItem="dA2-k1-0Zj" firstAttribute="top" secondItem="9lU-vR-Q6v" secondAttribute="bottom" constant="55" id="AqO-uN-AVX"/>
+                            <constraint firstItem="DJ2-X7-xRd" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="69" id="D5v-fK-53o"/>
+                            <constraint firstItem="Txk-kM-UJ2" firstAttribute="top" secondItem="ZSI-ds-1fI" secondAttribute="bottom" constant="10" id="Jb9-gX-ah0"/>
+                            <constraint firstItem="Rem-nG-XYd" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="25" id="PpG-GD-Iw0"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="DJ2-X7-xRd" secondAttribute="bottom" constant="20" id="RDY-mj-QXB"/>
+                            <constraint firstItem="ZSI-ds-1fI" firstAttribute="top" secondItem="dA2-k1-0Zj" secondAttribute="bottom" constant="10" id="ZDV-au-8Cs"/>
+                            <constraint firstItem="Txk-kM-UJ2" firstAttribute="leading" secondItem="Rem-nG-XYd" secondAttribute="trailing" constant="38" id="aH9-Ho-6L0"/>
+                            <constraint firstItem="9lU-vR-Q6v" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="25" id="c3T-9I-jWo"/>
+                            <constraint firstItem="Qyr-Iw-xga" firstAttribute="top" secondItem="Rem-nG-XYd" secondAttribute="bottom" constant="8" id="ggC-PZ-OJl"/>
+                            <constraint firstItem="bfd-QJ-SUk" firstAttribute="leading" secondItem="Qyr-Iw-xga" secondAttribute="trailing" constant="19" id="n6a-8a-iqi"/>
+                            <constraint firstItem="ZSI-ds-1fI" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="46" id="oqT-Yh-AFH"/>
+                            <constraint firstItem="Qyr-Iw-xga" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="25" id="ubE-0s-56E"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="DJ2-X7-xRd" secondAttribute="trailing" constant="69" id="xbK-Nj-5SI"/>
+                            <constraint firstItem="dA2-k1-0Zj" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="25" id="xge-RL-Kis"/>
+                            <constraint firstItem="bfd-QJ-SUk" firstAttribute="top" secondItem="Txk-kM-UJ2" secondAttribute="bottom" constant="8" id="y3J-b2-mxW"/>
+                            <constraint firstItem="Rem-nG-XYd" firstAttribute="top" secondItem="ZSI-ds-1fI" secondAttribute="bottom" constant="10" id="zAR-1z-13G"/>
+                        </constraints>
                     </view>
+                    <connections>
+                        <outlet property="playerLoseLabel" destination="DJ2-X7-xRd" id="uZz-ZA-fb1"/>
+                        <outlet property="playerOneHealthLabel" destination="ZSI-ds-1fI" id="mg9-zy-lSL"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="132" y="-27"/>
+            <point key="canvasLocation" x="130.53435114503816" y="-27.464788732394368"/>
         </scene>
     </scenes>
     <resources>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="systemRedColor">
+            <color red="1" green="0.23137254901960785" blue="0.18823529411764706" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>
