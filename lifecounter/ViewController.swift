@@ -8,10 +8,8 @@
 import UIKit
 
 class ViewController: UIViewController {
-    //player labels
     
     //player health
-
     var playerOne = 20
     var playerTwo = 20
     
@@ -58,6 +56,7 @@ class ViewController: UIViewController {
             playerLossLabel.text = "Player One Loses!"
             playerLossLabel.isHidden = false
         }
+        print("test")
     }
     
     
