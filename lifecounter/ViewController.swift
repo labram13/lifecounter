@@ -8,7 +8,7 @@
 import UIKit
 
 class ViewController: UIViewController {
-    
+    var healthChunk = 5
     //player health
     var playerOne = 20
     var playerTwo = 20
@@ -19,6 +19,14 @@ class ViewController: UIViewController {
     
     //player loss label
     @IBOutlet weak var playerLossLabel: UILabel!
+    @IBOutlet weak var healthChunkField: UITextField!
+    
+    
+    @IBOutlet var minusChunkButtons: [UIButton]!
+    
+    @IBOutlet var addChunkButtons: [UIButton]!
+    
+
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -30,6 +38,20 @@ class ViewController: UIViewController {
         
     }
     
+    //Set Health Chunk
+    @IBAction func HandleSetHealthChunk(_ sender: Any) {
+        if let userInput = Int(healthChunkField.text ?? "") {
+            healthChunk = userInput
+            for button in minusChunkButtons {
+                button.setTitle("-\(healthChunk)", for: .normal)
+            }
+            for button in addChunkButtons {
+                button.setTitle("+\(healthChunk)", for: .normal)
+            }
+        } else {
+            print("No valid number")
+        }
+    }
     //Player One Functions
     @IBAction func HandleFirstAddOne(_ sender: Any) {
         playerOne += 1
@@ -46,17 +68,16 @@ class ViewController: UIViewController {
     }
     
     @IBAction func HandleFirstAddFive(_ sender: Any) {
-        playerOne += 5
+        playerOne += healthChunk
         playerOneHealthLabel.text = String(playerOne)
     }
     @IBAction func HandleFirstMinusFive(_ sender: Any) {
-        playerOne -= 5
+        playerOne -= healthChunk
         playerOneHealthLabel.text = String(playerOne)
         if playerOne <= 0 {
             playerLossLabel.text = "Player One Loses!"
             playerLossLabel.isHidden = false
         }
-        print("test")
     }
     
     
@@ -76,12 +97,12 @@ class ViewController: UIViewController {
     }
     
     @IBAction func HandleSecondAddFive(_ sender: Any) {
-        playerTwo += 5
+        playerTwo += healthChunk
         playerTwoHealthLabel.text = String(playerTwo)
     }
     
     @IBAction func HandleSecondMinusFive(_ sender: Any) {
-        playerTwo -= 5
+        playerTwo -= healthChunk
         playerTwoHealthLabel.text = String(playerTwo)
         if playerTwo <= 0 {
             playerLossLabel.text = "Player Two Loses!"
