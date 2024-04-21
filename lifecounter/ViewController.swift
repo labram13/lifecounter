@@ -343,6 +343,7 @@ class ViewController: UIViewController {
         enablePlayer(player5Labels, player5Buttons
         )
         addPlayer5.isHidden = true
+        playerFiveHealthLabel.text = String(playerFive)
     }
     @IBAction func HandleAddPlayer6(_ sender: Any) {
         enablePlayer(player6Labels, player6Buttons
@@ -358,6 +359,9 @@ class ViewController: UIViewController {
         enablePlayer(player8Labels, player8Buttons
         )
         addPlayer8.isHidden = true
+    }
+    @IBAction func HandleNavigateHistory(_ sender: Any) {
+        
     }
 }
                                            

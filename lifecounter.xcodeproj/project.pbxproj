@@ -16,6 +16,7 @@
 		1F3B21EF2BCF817000C4DDCF /* lifecounterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F3B21EE2BCF817000C4DDCF /* lifecounterTests.swift */; };
 		1F3B21F92BCF817000C4DDCF /* lifecounterUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F3B21F82BCF817000C4DDCF /* lifecounterUITests.swift */; };
 		1F3B21FB2BCF817000C4DDCF /* lifecounterUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F3B21FA2BCF817000C4DDCF /* lifecounterUITestsLaunchTests.swift */; };
+		1F8CA1D52BD5BF2200A79CDD /* History.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1F8CA1D42BD5BF2200A79CDD /* History.storyboard */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -49,6 +50,7 @@
 		1F3B21F42BCF817000C4DDCF /* lifecounterUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = lifecounterUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		1F3B21F82BCF817000C4DDCF /* lifecounterUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = lifecounterUITests.swift; sourceTree = "<group>"; };
 		1F3B21FA2BCF817000C4DDCF /* lifecounterUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = lifecounterUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		1F8CA1D42BD5BF2200A79CDD /* History.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = History.storyboard; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -102,6 +104,7 @@
 				1F3B21D72BCF816E00C4DDCF /* AppDelegate.swift */,
 				1F3B21D92BCF816E00C4DDCF /* SceneDelegate.swift */,
 				1F3B21DB2BCF816E00C4DDCF /* ViewController.swift */,
+				1F8CA1D42BD5BF2200A79CDD /* History.storyboard */,
 				1F3B21DD2BCF816E00C4DDCF /* Main.storyboard */,
 				1F3B21E02BCF816F00C4DDCF /* Assets.xcassets */,
 				1F3B21E22BCF816F00C4DDCF /* LaunchScreen.storyboard */,
@@ -234,6 +237,7 @@
 				1F3B21E12BCF816F00C4DDCF /* Assets.xcassets in Resources */,
 				1F3B21E42BCF816F00C4DDCF /* Base in Resources */,
 				1F3B21DF2BCF816E00C4DDCF /* Base in Resources */,
+				1F8CA1D52BD5BF2200A79CDD /* History.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
