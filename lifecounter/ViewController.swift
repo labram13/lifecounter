@@ -7,7 +7,8 @@
 
 import UIKit
 
-class ViewController: UIViewController {
+class ViewController: UIViewController, UITextFieldDelegate {
+    
     
     @IBOutlet weak var okButton: UIButton!
     
@@ -65,7 +66,7 @@ class ViewController: UIViewController {
        
     @IBOutlet weak var playerLossLabel: UILabel!
     @IBOutlet weak var healthChunkField: UITextField!
-    
+  
     
     @IBOutlet var player5Labels: [UILabel]!
     @IBOutlet var player5Buttons: [UIButton]!
@@ -126,6 +127,10 @@ class ViewController: UIViewController {
         
         gameOverLabel.isHidden = true
         okButton.isHidden = true
+        
+        healthChunkField.delegate = self  // Set the delegate
+        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(dismissKeyboard))
+            view.addGestureRecognizer(tapGesture)
         
 
         
@@ -510,6 +515,12 @@ class ViewController: UIViewController {
         playerHistory = []
         startButton.isHidden = false
     }
+    @objc func dismissKeyboard() {
+        view.endEditing(true)
+    }
+    
       
 }
+
+
                                            
