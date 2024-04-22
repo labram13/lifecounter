@@ -8,6 +8,30 @@
 import UIKit
 
 class ViewController: UIViewController {
+    
+    @IBOutlet weak var okButton: UIButton!
+    
+    func gameOverCheck(_ playerHealth: [UILabel]!) {
+        var count = 0
+        var totalPlayers = 0
+        for health in playerHealth {
+            if !health.isHidden {
+                totalPlayers += 1
+                let currHealth = Int(health.text!)!
+                if currHealth <= 0 {
+                    count += 1
+                }
+            }
+        }
+        print(totalPlayers - count == 1)
+        if totalPlayers - count == 1 {
+            gameOverLabel.isHidden = false
+            okButton.isHidden = false
+        }
+    }
+    
+    @IBOutlet weak var gameOverLabel: UILabel!
+    var playerHistory: [String] = []
     var healthChunk = 5
     //player health
     var playerOne = 20
@@ -100,6 +124,9 @@ class ViewController: UIViewController {
         
         playerLossLabel.isHidden = true
         
+        gameOverLabel.isHidden = true
+        okButton.isHidden = true
+        
 
         
     }
@@ -122,28 +149,34 @@ class ViewController: UIViewController {
     @IBAction func HandleFirstAddOne(_ sender: Any) {
         playerOne += 1
         playerOneHealthLabel.text = String(playerOne)
+        playerHistory.append("Player 1 added 1 life")
     }
     
     @IBAction func HandleFirstMinusOne(_ sender: Any) {
         playerOne -= 1
         playerOneHealthLabel.text = String(playerOne)
         if playerOne <= 0 {
-            playerLossLabel.text = "Player One Loses!"
+//            playerLossLabel.text = "Player 1 Loses!"
             playerLossLabel.isHidden = false
         }
+        playerHistory.append("Player 1 lost 1 life")
+        gameOverCheck(allPlayerHealth)
     }
     
     @IBAction func HandleFirstAddFive(_ sender: Any) {
         playerOne += healthChunk
         playerOneHealthLabel.text = String(playerOne)
+        playerHistory.append("Player 1 added \(healthChunk) life")
     }
     @IBAction func HandleFirstMinusFive(_ sender: Any) {
         playerOne -= healthChunk
         playerOneHealthLabel.text = String(playerOne)
         if playerOne <= 0 {
-            playerLossLabel.text = "Player One Loses!"
+            playerLossLabel.text = "Player 1 Loses!"
             playerLossLabel.isHidden = false
         }
+        playerHistory.append("Player 1 lost \(healthChunk) life")
+        gameOverCheck(allPlayerHealth)
     }
     
     
@@ -151,6 +184,7 @@ class ViewController: UIViewController {
     @IBAction func HandleSecondAddOne(_ sender: Any) {
         playerTwo += 1
         playerTwoHealthLabel.text = String(playerTwo)
+        playerHistory.append("Player 2 added 1 life")
     }
     
     @IBAction func HandleSecondMinusOne(_ sender: Any) {
@@ -160,11 +194,14 @@ class ViewController: UIViewController {
             playerLossLabel.text = "Player 2 Loses!"
             playerLossLabel.isHidden = false
         }
+        playerHistory.append("Player 2 lost 1 life")
+        gameOverCheck(allPlayerHealth)
     }
     
     @IBAction func HandleSecondAddFive(_ sender: Any) {
         playerTwo += healthChunk
         playerTwoHealthLabel.text = String(playerTwo)
+        playerHistory.append("Player 2 added \(healthChunk) life")
     }
     
     @IBAction func HandleSecondMinusFive(_ sender: Any) {
@@ -174,12 +211,15 @@ class ViewController: UIViewController {
             playerLossLabel.text = "Player 2 Loses!"
             playerLossLabel.isHidden = false
         }
+        playerHistory.append("Player 2 lost \(healthChunk) life")
+        gameOverCheck(allPlayerHealth)
     }
     
     //player 3 functions
     @IBAction func HandleThirdAddOne(_ sender: Any) {
         playerThree += 1
         playerThreeHealthLabel.text = String(playerThree)
+        playerHistory.append("Player 3 added 1 life")
     }
     
     @IBAction func HandleThirdMinusOne(_ sender: Any) {
@@ -189,11 +229,14 @@ class ViewController: UIViewController {
             playerLossLabel.text = "Player 3 Loses!"
             playerLossLabel.isHidden = false
         }
+        playerHistory.append("Player 3 lost 1 life")
+        gameOverCheck(allPlayerHealth)
     }
     
     @IBAction func HandleThirdAddFiveChunk(_ sender: Any) {
         playerThree += healthChunk
         playerThreeHealthLabel.text = String(playerThree)
+        playerHistory.append("Player 3 added \(healthChunk) life")
     }
     @IBAction func HandleThirdMinusChunk(_ sender: Any) {
         playerThree -= healthChunk
@@ -202,6 +245,8 @@ class ViewController: UIViewController {
             playerLossLabel.text = "Player 3 loses!"
             playerLossLabel.isHidden = false
         }
+        playerHistory.append("Player 3 lost \(healthChunk) life")
+        gameOverCheck(allPlayerHealth)
     }
     
     //player four functions
@@ -209,6 +254,7 @@ class ViewController: UIViewController {
     @IBAction func HandleFourthAddOne(_ sender: Any) {
         playerFour += 1
         playerFourHealthLabel.text = String(playerFour)
+        playerHistory.append("Player 4 added 1 life")
         
     }
     @IBAction func HandleFourthMinusOne(_ sender: Any) {
@@ -218,10 +264,13 @@ class ViewController: UIViewController {
             playerLossLabel.text = "Player 4 Loses!"
             playerLossLabel.isHidden = false
         }
+        playerHistory.append("Player 4 lost 1 life")
+        gameOverCheck(allPlayerHealth)
     }
     @IBAction func HandleFourthAddChunk(_ sender: Any) {
         playerFour += healthChunk
         playerFourHealthLabel.text = String(playerFour)
+        playerHistory.append("Player 4 added \(healthChunk) ")
     }
     @IBAction func HandleFourthMinusChunk(_ sender: Any) {
         playerFour -= healthChunk
@@ -230,113 +279,158 @@ class ViewController: UIViewController {
             playerLossLabel.text = "Player 4 Loses!"
             playerLossLabel.isHidden = false
         }
+        playerHistory.append("Player 4 lost \(healthChunk) life")
+        gameOverCheck(allPlayerHealth)
     }
     
     //player five
     @IBAction func HandleFifthAddOne(_ sender: Any) {
         playerFive += 1
         playerFiveHealthLabel.text = String(playerFive)
+        playerHistory.append("Player 5 added 1 life ")
     }
     @IBAction func HandleFifthMinusOne(_ sender: Any) {
         playerFive -= 1
         playerFiveHealthLabel.text = String(playerFive)
+        playerHistory.append("Player 5 lost 1 life")
         if playerFive <= 0 {
+            
             playerLossLabel.text = "Player 5 Loses!"
+            playerHistory.append(playerLossLabel.text!)
             playerLossLabel.isHidden = false
         }
+        gameOverCheck(allPlayerHealth)
+        
     }
     @IBAction func HandleFifthAddChunk(_ sender: Any) {
         playerFive += healthChunk
         playerFiveHealthLabel.text = String(playerFive)
+        playerHistory.append("Player 5 added \(healthChunk) life")
     }
     @IBAction func HandleFifthMinusChunk(_ sender: Any) {
         playerFive -= healthChunk
         playerFiveHealthLabel.text = String(playerFive)
+        playerHistory.append("Player 5 lost \(healthChunk) life")
+        
         if playerFive <= 0 {
             playerLossLabel.text = "Player 5 Loses!"
+            playerHistory.append(playerLossLabel.text!)
             playerLossLabel.isHidden = false
         }
+        gameOverCheck(allPlayerHealth)
     }
     
     //player 6
     @IBAction func HandleSixthAddOne(_ sender: Any) {
         playerSix += 1
         playerSixHealthLabel.text = String(playerSix)
+        playerHistory.append("Player 6 added 1 life")
+
     }
     @IBAction func HandleSixthMinusOne(_ sender: Any) {
         playerSix -= 1
         playerSixHealthLabel.text = String(playerSix)
+        playerHistory.append("Player 6 lost 1 life")
+
         if playerSix <= 0 {
             playerLossLabel.text = "Player 6 Loses!"
+            playerHistory.append(playerLossLabel.text!)
             playerLossLabel.isHidden = false
         }
+        gameOverCheck(allPlayerHealth)
     }
     @IBAction func HandleSixthAddChunk(_ sender: Any) {
         playerSix += healthChunk
         playerSixHealthLabel.text = String(playerSix)
+        playerHistory.append("Player 6 added \(healthChunk) life")
     }
     @IBAction func HandleSixthAMinusChunk(_ sender: Any) {
         playerSix -= healthChunk
         playerSixHealthLabel.text = String(playerSix)
+        playerHistory.append("Player 6 lost \(healthChunk) life")
+
         if playerSix <= 0 {
             playerLossLabel.text = "Player 6 Loses!"
             playerLossLabel.isHidden = false
+            playerHistory.append(playerLossLabel.text!)
         }
+        gameOverCheck(allPlayerHealth)
     }
     
     //player 7
     @IBAction func HandleSeventhAddOne(_ sender: Any) {
         playerSeven += 1
         playerSevenHealthLabel.text = String(playerSeven)
+        playerHistory.append("Player 7 added 1 life")
+
     }
     @IBAction func HandleSeventMinusOne(_ sender: Any) {
         playerSeven -= 1
         playerSevenHealthLabel.text = String(playerSeven)
+        playerHistory.append("Player 7 lost 1 life")
         if playerSeven <= 0 {
             playerLossLabel.text = "Player 7 Loses!"
             playerLossLabel.isHidden = false
+            playerHistory.append(playerLossLabel.text!)
         }
+        gameOverCheck(allPlayerHealth)
     }
     
     @IBAction func HandleSeventhAddChunk(_ sender: Any) {
         playerSeven += healthChunk
         playerSevenHealthLabel.text = String(playerSeven)
+        playerHistory.append("Player 7 added \(healthChunk) life")
     }
     @IBAction func HandleSeventhMinusChunk(_ sender: Any) {
         playerSeven -= healthChunk
         playerSevenHealthLabel.text = String(playerSeven)
+        playerHistory.append("Player 7 lost \(healthChunk) life")
         if playerSeven <= 0 {
             playerLossLabel.text = "Player 7 Loses!"
             playerLossLabel.isHidden = false
+            playerHistory.append(playerLossLabel.text!)
         }
+        gameOverCheck(allPlayerHealth)
     }
     
     //player 8
     @IBAction func HandleEigthAddOne(_ sender: Any) {
         playerEight += 1
         playerEightHealthLabel.text = String(playerEight)
+        playerHistory.append("Player 8 added 1 life")
+
     }
     @IBAction func HandleEightMinusOne(_ sender: Any) {
         playerEight -= 1
         playerEightHealthLabel.text = String(playerEight)
+        playerHistory.append("Player 8 lost 1 life")
+
         if playerEight <= 0 {
             playerLossLabel.text = "Player 8 Loses!"
             playerLossLabel.isHidden = false
+            playerHistory.append(playerLossLabel.text!)
         }
+        gameOverCheck(allPlayerHealth)
     }
     @IBAction func HandleEightAddChunk(_ sender: Any) {
         playerEight += healthChunk
         playerEightHealthLabel.text = String(playerEight)
+        playerHistory.append("Player 8 added \(healthChunk) life")
+
     }
     
     @IBAction func HandleEightMinusChunk(_ sender: Any) {
         playerEight -= healthChunk
         playerEightHealthLabel.text = String(playerEight)
+        playerHistory.append("Player 8 lost \(healthChunk) life ")
+
 
         if playerEight <= 0 {
             playerLossLabel.text = "Player 8 Loses!"
             playerLossLabel.isHidden = false
+            playerHistory.append(playerLossLabel.text!)
         }
+        gameOverCheck(allPlayerHealth)
     }
     
     @IBAction func HandleAddPlayerFive(_ sender: Any) {
@@ -360,8 +454,62 @@ class ViewController: UIViewController {
         )
         addPlayer8.isHidden = true
     }
-    @IBAction func HandleNavigateHistory(_ sender: Any) {
-        
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "historyView" {
+            if let destinationVC = segue.destination as? HistoryViewController {
+                destinationVC.receivedHistory = playerHistory // your array to pass
+            }
+        }
     }
+    
+    
+    
+    @IBOutlet var addPlayerButtons: [UIButton]!
+    
+    @IBOutlet weak var startButton: UIButton!
+    @IBAction func HandleStartGame(_ sender: Any) {
+        for button in addPlayerButtons {
+            if !button.isHidden {
+                button.isHidden = true
+            }
+        }
+        startButton.isHidden = true
+    
+    }
+   
+    @IBOutlet var allPlayerHealth: [UILabel]!
+    @IBAction func HandleGameReset(_ sender: Any) {
+        playerOne = 20
+        playerTwo = 20
+        playerThree = 20
+        playerFour = 20
+        playerFive = 20
+        playerSix = 20
+        playerSeven = 20
+        playerEight = 20
+        
+        for health in allPlayerHealth {
+            health.text = "20"
+        }
+        
+        disablePlayer(player5Labels, player5Buttons)
+        disablePlayer(player6Labels, player6Buttons)
+        disablePlayer(player7Labels, player7Buttons)
+        disablePlayer(player8Labels, player8Buttons)
+        
+        playerLossLabel.isHidden = true
+        
+        gameOverLabel.isHidden = true
+        
+        for button in addPlayerButtons {
+            button.isHidden = false
+        }
+        okButton.isHidden = true
+        
+        playerHistory = []
+        startButton.isHidden = false
+    }
+      
 }
                                            
